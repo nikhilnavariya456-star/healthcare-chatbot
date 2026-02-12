@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Login | Healthcare Assistant</title>
+  <link rel="stylesheet" href="/static/css/login.css">
+</head>
+<body>
+
+<div class="login-container">
+  <div class="login-card">
+
+    <h2>Password Login</h2>
+    <p class="subtitle">Login using your email & password</p>
+
+    {% if request.query_params.get("success") %}
+      <div class="success-box">
+        Account created successfully. Please login.
+      </div>
+    {% endif %}
+
+    {% if request.query_params.get("error") %}
+      <div class="error-box">
+        Invalid email or password
+      </div>
+    {% endif %}
+
+    <!-- 🔐 PASSWORD LOGIN -->
+    <form method="post" action="/auth/local/login">
+      <input type="email" name="email" placeholder="Email address" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+
+    <div class="divider"><span>OR</span></div>
+
+    <!-- 🔑 GOOGLE LOGIN -->
+    <a href="/auth/google" class="google-btn">
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
+      Continue with Google
+    </a>
+
+    <div class="footer-text">
+      Forgot password?
+      <span>Reset</span>
+    </div>
+
+    <div class="footer-text">
+      New user?
+      <a href="/register">Create account</a>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

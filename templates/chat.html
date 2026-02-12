@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Healthcare Chatbot</title>
+
+  <link rel="stylesheet" href="/static/css/chat.css" />
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="top-bar">
+    <div class="brand">
+      <div class="logo">💊</div>
+      <div>
+        <h1>Healthcare Chatbot</h1>
+        <p>Your AI health assistant</p>
+      </div>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="profile-container" onclick="toggleProfileMenu()">
+
+      {% if user.profile_pic %}
+        <img src="{{ user.profile_pic }}" alt="Profile" class="profile-pic" />
+      {% else %}
+        <div class="avatar">
+          {{ user.name[0]|upper }}
+        </div>
+      {% endif %}
+
+      <span class="username">{{ user.name }}</span>
+
+      <div id="profile-menu" class="dropdown hidden">
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= WELCOME ================= -->
+  <section class="welcome">
+    <h2>Welcome, {{ user.name }} 👋</h2>
+    <p>Ask me anything related to health & wellness.</p>
+  </section>
+
+  <!-- ================= CHAT ================= -->
+  <main class="chat-container" id="chatBox">
+    <!-- Messages dynamically added -->
+  </main>
+
+  <!-- ================= INPUT ================= -->
+  <footer class="chat-input">
+    <input
+      type="text"
+      id="userInput"
+      placeholder="Type your health question..."
+      autocomplete="off"
+    />
+    <button id="sendBtn">➤</button>
+  </footer>
+
+  <script src="/static/chat.js"></script>
+</body>
+</html>

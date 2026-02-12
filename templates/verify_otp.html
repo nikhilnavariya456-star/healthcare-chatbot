@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Verify OTP | Healthcare Assistant</title>
+  <link rel="stylesheet" href="/static/css/login.css">
+</head>
+<body>
+
+<div class="login-container">
+  <div class="login-card">
+
+    <h2>Verify OTP</h2>
+    <p class="subtitle">
+      Enter the 6-digit code sent to your email
+    </p>
+
+    {% if request.query_params.get("error") == "invalid" %}
+      <div class="error-box">
+        Invalid OTP. Please try again.
+      </div>
+    {% endif %}
+
+    {% if request.query_params.get("error") == "expired" %}
+      <div class="error-box">
+        OTP expired. Please request again.
+      </div>
+    {% endif %}
+
+    <form method="post" action="/auth/otp/verify">
+      <input type="hidden" name="email" value="{{ email }}">
+      <input
+        type="text"
+        name="otp"
+        placeholder="Enter 6-digit OTP"
+        maxlength="6"
+        required
+      >
+      <button type="submit" class="login-btn">
+        Verify & Continue
+      </button>
+    </form>
+
+    <div class="footer-text">
+      Didn’t get OTP?
+      <a href="/">Resend</a>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

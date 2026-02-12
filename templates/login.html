@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Healthcare Assistant</title>
+  <link rel="stylesheet" href="/static/css/login.css">
+</head>
+<body>
+
+<div class="login-container">
+  <div class="login-card">
+
+    <h2>Welcome Back</h2>
+    <p class="subtitle">Sign in to your Healthcare Assistant</p>
+
+    {% if request.query_params.get("error") %}
+      <div class="error-box">
+        {{ request.query_params.get("error") }}
+      </div>
+    {% endif %}
+
+    {% if request.query_params.get("otp") == "sent" %}
+      <div class="error-box" style="background:#dcfce7;color:#166534">
+        OTP sent to your email
+      </div>
+    {% endif %}
+
+    <!-- GOOGLE LOGIN -->
+    <a href="/auth/google" class="google-btn">
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
+      Continue with Google
+    </a>
+
+    <div class="divider"><span>OR</span></div>
+
+    <!-- OTP REQUEST -->
+    <form action="/auth/otp/request" method="post">
+      <input
+        type="email"
+        name="email"
+        placeholder="Email address"
+        value="{{ request.query_params.get('email','') }}"
+        required
+      >
+      <button type="submit" class="login-btn">Send OTP</button>
+    </form>
+
+    <div class="footer-text">
+      Using a password?
+      <a href="/local-login">Login with password</a>
+    </div>
+
+    <div class="footer-text">
+      New here?
+      <a href="/register">Create an account</a>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+}
+
+.header {
+  background: #0b7285;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat-box {
+  padding: 20px;
+  height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+/* Group per question */
+.chat-group {
+  margin-bottom: 30px;
+}
+
+/* Common message */
+.message {
+  max-width: 80%;
+  padding: 16px;
+  border-radius: 10px;
+  line-height: 1.6;
+}
+
+/* Labels */
+.label {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+/* User */
+.message.user {
+  background: #d0ebff;
+  margin-left: auto;
+}
+
+/* Bot */
+.message.bot {
+  background: #ffffff;
+  margin-top: 10px;
+  border-left: 5px solid #0b7285;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Topic headings */
+.topic {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 14px;
+  margin-bottom: 6px;
+}
+
+/* Normal text */
+.text {
+  font-size: 15px;
+  color: #333;
+}
+
+/* Input */
+.input-area {
+  display: flex;
+  padding: 15px;
+  background: white;
+  border-top: 1px solid #ddd;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.input-area button {
+  margin-left: 10px;
+  padding: 12px 22px;
+  background: #0b7285;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-name {
+  color: white;
+  font-weight: 600;
+}
+
+.profile-menu {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  padding: 8px;
+  min-width: 120px;
+  z-index: 1000;
+}
+
+.profile-menu button {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.profile-menu button:hover {
+  background-color: #f0f0f0;
+}
+
+.hidden {
+  display: none;
+}

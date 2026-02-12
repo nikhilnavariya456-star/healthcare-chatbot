@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+python-dotenv
+python-jose
+requests
+jinja2
+groq
